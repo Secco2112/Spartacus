@@ -1,0 +1,51 @@
+.form-simple input[type=text] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-simple input[type=mail] {
+  margin-bottom: -1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-simple input[type=password] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.help-block ul {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.help-block ul li {
+  list-style: none;
+}
+
+.admin-menus #basic-form-layouts .card {
+  height: auto !important;
+}
+.admin-menus #basic-form-layouts .card.left {
+  width: 60%;
+}
+.admin-menus #basic-form-layouts .card.right {
+  display: none;
+  width: 35%;
+}
+.admin-menus #basic-form-layouts .card.right .buttons-options {
+  display: flex;
+  flex-direction: column;
+}
+.admin-menus #basic-form-layouts .card.right .buttons-options button {
+  display: none;
+  width: 45%;
+}
+.admin-menus #basic-form-layouts .card.right .buttons-options button:not(:first-child) {
+  margin-top: 10px;
+}
+.admin-menus .modal .formModal .wrapper {
+  display: flex;
+  justify-content: space-between;
+}

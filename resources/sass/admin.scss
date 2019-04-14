@@ -1,0 +1,28 @@
+.admin-menus{
+	#basic-form-layouts{
+		.card{
+			height: auto !important;
+			&.left{
+				width: 60%;
+			}
+			&.right{
+				display: none;
+				width: 35%;
+				.buttons-options{
+					display: flex;
+					flex-direction: column;
+					button{
+						display: none;
+						width: 45%;
+						&:not(:first-child){
+							margin-top: 10px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.modal{
+		
+	}
+}
