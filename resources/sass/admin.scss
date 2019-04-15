@@ -1,3 +1,30 @@
+.card-header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.options-header{
+		a{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #F3F3F3;
+			color: #1D2B36;
+			border: 1px solid #1D2B36;
+			transition: .2s all ease;
+		    width: 160px;
+    		height: 38px;
+			&:hover{
+				background-color: #1D2B36;
+				color: #F3F3F3;
+				border: 1px solid #F3F3F3;
+			}
+		}
+	}
+	&:after{
+		display: none;
+	}
+}
+
 .admin-menus{
 	#basic-form-layouts{
 		.card{
@@ -25,4 +52,8 @@
 	.modal{
 		
 	}
+}
+
+.modal-backdrop{
+	background-color: rgba(0, 0, 0, 0.8);
 }

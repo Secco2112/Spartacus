@@ -24,6 +24,31 @@
   list-style: none;
 }
 
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-header .options-header a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F3F3F3;
+  color: #1D2B36;
+  border: 1px solid #1D2B36;
+  transition: 0.2s all ease;
+  width: 160px;
+  height: 38px;
+}
+.card-header .options-header a:hover {
+  background-color: #1D2B36;
+  color: #F3F3F3;
+  border: 1px solid #F3F3F3;
+}
+.card-header:after {
+  display: none;
+}
+
 .admin-menus #basic-form-layouts .card {
   height: auto !important;
 }
@@ -45,7 +70,6 @@
 .admin-menus #basic-form-layouts .card.right .buttons-options button:not(:first-child) {
   margin-top: 10px;
 }
-.admin-menus .modal .formModal .wrapper {
-  display: flex;
-  justify-content: space-between;
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
 }

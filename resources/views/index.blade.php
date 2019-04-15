@@ -10,7 +10,7 @@
             </div>
             <div class="content-body">
                 <!-- stats -->
-                <div class="row">
+                <div class="row" style="display: none;">
                     <div class="col-xl-3 col-lg-6 col-xs-12">
                         <div class="card">
                             <div class="card-body">
@@ -82,7 +82,7 @@
                 </div>
                 <!--/ stats -->
                 <!--/ project charts -->
-                <div class="row">
+                <div class="row" style="display: none;">
                     <div class="col-xl-8 col-lg-12">
                         <div class="card">
                             <div class="card-body">
@@ -143,7 +143,7 @@
                 </div>
                 <!--/ project charts -->
                 <!-- Recent invoice with Statistics -->
-                <div class="row match-height">
+                <div class="row match-height" style="display: none;">
                     <div class="col-xl-4 col-lg-12">
                         <div class="card">
                             <div class="card-body">
@@ -257,7 +257,7 @@
                     </div>
                 </div>
                 <!-- Recent invoice with Statistics -->
-                <div class="row match-height">
+                <div class="row match-height" style="display: none;">
                     <div class="col-xl-4 col-md-6 col-sm-12">
                         <div class="card" style="height: 440px;">
                             <div class="card-body">
