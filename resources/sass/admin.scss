@@ -25,6 +25,23 @@
 	}
 }
 
+.card-body{
+	table.table{
+		tbody{
+			.buttons{
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				div{
+					&:not(:first-child){
+						margin-left: 15px;
+					}
+				}
+			}
+		}
+	}
+}
+
 .admin-menus{
 	#basic-form-layouts{
 		.card{
@@ -56,4 +73,70 @@
 
 .modal-backdrop{
 	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.user-form{
+	margin-top: 35px;
+}
+
+.custom-checkbox{
+	> .container{
+		display: block;
+		position: relative;
+		cursor: pointer;
+		font-size: 22px;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		width: 25px;
+		height: 25px;
+		padding: 0;
+		margin: 0;
+		input[type=checkbox]{
+			position: absolute;
+			opacity: 0;
+			cursor: pointer;
+			height: 100%;
+			width: 100%;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 1;
+			&:checked ~ .checkmark{
+				background-color: #2196F3;
+				&:after {
+					display: block;
+				}
+			}
+		}
+		.checkmark{
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 25px;
+			width: 25px;
+			background-color: #eee;
+			&:after {
+				content: "";
+				position: absolute;
+				display: none;
+				left: 10px;
+				top: 7px;
+				width: 5px;
+				height: 10px;
+				border: solid white;
+				border-width: 0 3px 3px 0;
+				-webkit-transform: rotate(45deg);
+				-ms-transform: rotate(45deg);
+				transform: rotate(45deg);
+			}
+		}
+		&:hover{
+			input ~ .checkmark{
+				background-color: #ccc;
+			}
+		}
+	}
 }

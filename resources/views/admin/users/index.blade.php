@@ -15,7 +15,7 @@
 									<div class="options-header">
 										<?php
 											if($buttons["create"]) { ?>
-												<a href="usuarios-regras/inserir">Inserir</a>
+												<a href="usuarios/inserir">Inserir</a>
 											<? }
 										?>
 									</div>
@@ -50,12 +50,12 @@
 																	echo "<td class='buttons'>";
 																		if($buttons["edit"]) { ?>
 																			<div>
-																				<a href="usuarios-regras/editar/<?= $dado->id; ?>">Editar</a>
+																				<a href="usuarios/editar/<?= $dado->id; ?>">Editar</a>
 																			</div>
 																		<? }
 																		if($buttons["delete"]) { ?>
 																			<div>
-																				<a href="usuarios-regras/deletar/<?= $dado->id; ?>">Deletar</a>
+																				<a href="usuarios/deletar/<?= $dado->id; ?>">Deletar</a>
 																			</div>
 																		<? }
 																	echo "</td>";

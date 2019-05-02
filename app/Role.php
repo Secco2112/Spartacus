@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Symfony\Component\VarDumper\VarDumper;
 
 class Role extends Model
 {
@@ -18,13 +19,16 @@ class Role extends Model
 			"delete" => "D"
 		];
 
+		$menu_data = \App\Menu::where("name", \Request::route()->getName())->get();
+		$menu_id = $menu_data[0]->id;
+
 		if(array_key_exists($role, $translatePermission)) {
 			$current_user = \Auth::user();
         	$current_user_role = $current_user->getRole();
 
         	$permission = Permission::where([
         		["role_id", "=", $current_user_role[0]->id],
-        		["menu_id", "=", 4],
+        		["menu_id", "=", $menu_id],
         		["option", "=", $translatePermission[$role]]
         	]);
 

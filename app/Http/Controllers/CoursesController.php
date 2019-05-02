@@ -3,30 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Course;
 use App\Role;
 
-class RolesController extends Controller
+class CoursesController extends Controller
 {
-
-	public $fields = ["name" => "Nome", "description" => "Descrição"];
+    public $fields = ["name" => "Nome"];
 	private $paginate = 15;
-	private $model = "\App\Role";
+	private $model = "\App\Course";
 
-    public function index() {
-		$model = new $this->model();
+    public function index(Request $request)
+    {
+    	$model = new $this->model();
 
     	$data = new \App\Menu();
         $menus = $data->getMenus();
 
-        $dados = Role::orderBy('id', 'asc')->paginate($this->paginate);
+        $dados = Course::orderBy('id', 'asc')->paginate($this->paginate);
 
+        $role = new Role();
         $buttons = [
         	"create" => false,
         	"edit" => false,
         	"delete" => false
         ];
         foreach ($buttons as $key => $value) {
-        	$buttons[$key] = $model->hasPermissionTo($key);
+        	$buttons[$key] = $role->hasPermissionTo($key);
         }
 
         $data = [
@@ -36,10 +38,10 @@ class RolesController extends Controller
         	"buttons" => $buttons
         ];
 
-    	return view('admin.roles.index')->with($data);
-	}
-	
-	public function create() {
+        return view('courses.index')->with($data);
+    }
+
+    public function create() {
         if(!empty($_POST)) {
             $data = new $this->model;
     		foreach ($_POST as $key => $value) {
@@ -48,12 +50,12 @@ class RolesController extends Controller
     		}
     		try {
     			if($data->save()) {
-	    			return redirect()->route('Usuários :: Regras')->with('message-success', 'Regra inserida com sucesso!');
+	    			return redirect()->route('Cursos')->with('message-success', 'Curso inserido com sucesso!');
 	    		} else {
-	    			return redirect()->route('Usuários :: Regras')->with('message-error', 'Erro ao inserir regra!');
+	    			return redirect()->route('Cursos')->with('message-error', 'Erro ao inserir curso!');
 	    		}
     		} catch(Exception $e) {
-    			return redirect()->route('Usuários :: Regras')->with('message-error', $e->getMessage());
+    			return redirect()->route('Cursos')->with('message-error', $e->getMessage());
     		}
         }
 
@@ -64,7 +66,7 @@ class RolesController extends Controller
     		"menus" => $menus
     	];
 
-        return view('admin.roles.create')->with($data);
+        return view('courses.create')->with($data);
     }
 
     public function edit($id = null) {
@@ -80,7 +82,7 @@ class RolesController extends Controller
     		"dados" => $dados
     	];
 
-    	return view('admin.roles.edit')->with($data);
+    	return view('courses.edit')->with($data);
     }
 
     public function update(Request $request, $id) {
@@ -92,28 +94,27 @@ class RolesController extends Controller
     		}
     		try {
     			if($data->save()) {
-	    			return redirect()->route('Usuários :: Regras')->with('message-success', 'Regra atualizada com sucesso!');
+	    			return redirect()->route('Cursos')->with('message-success', 'Curso atualizado com sucesso!');
 	    		} else {
-	    			return redirect()->route('Usuários :: Regras')->with('message-error', 'Erro ao atulziar regra!');
+	    			return redirect()->route('Cursos')->with('message-error', 'Erro ao atulziar curso!');
 	    		}
     		} catch(Exception $e) {
-    			return redirect()->route('Usuários :: Regras')->with('message-error', $e->getMessage());
+    			return redirect()->route('Cursos')->with('message-error', $e->getMessage());
     		}
-    		
     	}
-	}
-	
-	public function delete($id = null) {
+    }
+
+    public function delete($id = null) {
         $data = $this->model::find($id);
         
         try {
             if($data->delete()) {
-                return redirect()->route('Usuários :: Regras')->with('message-success', 'Regra deletada com sucesso!');
+                return redirect()->route('Cursos')->with('message-success', 'Curso deletado com sucesso!');
             } else {
-                return redirect()->route('Usuários :: Regras')->with('message-error', 'Erro ao deletar regra!');
+                return redirect()->route('Cursos')->with('message-error', 'Erro ao deletar curso!');
             }
         } catch(Exception $e) {
-            return redirect()->route('Usuários :: Regras')->with('message-error', $e->getMessage());
+            return redirect()->route('Cursos')->with('message-error', $e->getMessage());
         }
     }
 }

@@ -23,11 +23,34 @@ Route::post('/admin/menus/edit', 'MenusController@edit');
 Route::post('/admin/menus/delete', 'MenusController@delete');
 
 
+// Usuários - Admin
+Route::get('/admin/usuarios', 'UsersController@index')->name('Usuários');
+Route::get('/admin/usuarios/inserir', 'UsersController@create')->name('Usuários - Inserir');
+Route::post('/admin/usuarios/inserir', 'UsersController@create');
+Route::get('/admin/usuarios/editar/{id}', 'UsersController@edit')->name('Usuários - Editar');
+Route::post('/admin/usuarios/editar/{id}', 'UsersController@update');
+Route::get('/admin/usuarios/deletar/{id}', 'UsersController@delete')->name('Usuários - Deletar');
+
+
 // Usuários Regras - Admin
 Route::get('/admin/usuarios-regras', 'RolesController@index')->name('Usuários :: Regras');
 Route::get('/admin/usuarios-regras/inserir', 'RolesController@create')->name('Usuários :: Regras - Inserir');
+Route::post('/admin/usuarios-regras/inserir', 'RolesController@create');
 Route::get('/admin/usuarios-regras/editar/{id}', 'RolesController@edit')->name('Usuários :: Regras - Editar');
 Route::post('/admin/usuarios-regras/editar/{id}', 'RolesController@update');
+Route::get('/admin/usuarios-regras/deletar/{id}', 'RolesController@delete')->name('Usuários :: Regras - Deletar');
+
+
+// Cursos - Admin
+Route::get('/admin/cursos', 'CoursesController@index')->name('Cursos');
+Route::get('/admin/cursos/inserir', 'CoursesController@create')->name('Cursos - Inserir');
+Route::post('/admin/cursos/inserir', 'CoursesController@create');
+Route::get('/admin/cursos/editar/{id}', 'CoursesController@edit')->name('Cursos - Editar');
+Route::post('/admin/cursos/editar/{id}', 'CoursesController@update');
+Route::get('/admin/cursos/deletar/{id}', 'CoursesController@delete')->name('Cursos - Deletar');
+
+
+Route::post('/admin/estados/cidades', 'StatesController@getCities');
 
 
 Route::get('/login', function() {

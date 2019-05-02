@@ -3,6 +3,7 @@ $(document).ready(function() {
 	handle_flash_messages();
 	js_tree_menus();
 
+	users_form();
 });
 
 
@@ -178,5 +179,47 @@ function js_tree_menus() {
 				}
 			}
 		});
+	});
+}
+
+
+function users_form() {
+	$("select[name=user-type]").on("change", function() {
+		var type = $(this).find("option:selected").val();
+
+		$(".user-form").hide();
+		$("#form_" + type).show();
+	});
+
+	$("select[name=state_id]").on("change", function() {
+		var _this = $(this),
+			state_id = $(_this).find("option:selected").val(),
+			cities_select = $("select[name=city_id]");
+
+			$.ajax({
+				url: '/admin/estados/cidades',
+				dataType: 'json',
+				type: 'post',
+				data: ({
+					state_id: state_id
+				}),
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				},
+				success: function(data) {
+					if(data.success == true) {
+						var cities = data.cities;
+
+						$(cities_select).empty().append("<option value='0' selected disabled>Selecione uma cidade...</option>");
+
+						$.each(cities, function(i, el) {
+							var option = "<option value='" + el.id + "'>" + el.name + "</option>";
+							$(cities_select).append(option);
+						});
+
+						$(cities_select).removeAttr("disabled").removeAttr("title");
+					}
+				}
+			});
 	});
 }
