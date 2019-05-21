@@ -30,6 +30,7 @@ Route::post('/admin/usuarios/inserir', 'UsersController@create');
 Route::get('/admin/usuarios/editar/{id}', 'UsersController@edit')->name('Usuários - Editar');
 Route::post('/admin/usuarios/editar/{id}', 'UsersController@update');
 Route::get('/admin/usuarios/deletar/{id}', 'UsersController@delete')->name('Usuários - Deletar');
+Route::post('/admin/usuarios/cep', 'UsersController@cep');
 
 
 // Usuários Regras - Admin
@@ -39,6 +40,7 @@ Route::post('/admin/usuarios-regras/inserir', 'RolesController@create');
 Route::get('/admin/usuarios-regras/editar/{id}', 'RolesController@edit')->name('Usuários :: Regras - Editar');
 Route::post('/admin/usuarios-regras/editar/{id}', 'RolesController@update');
 Route::get('/admin/usuarios-regras/deletar/{id}', 'RolesController@delete')->name('Usuários :: Regras - Deletar');
+Route::get('/admin/usuarios-regras/permissoes/{id}', 'RolesController@permissions')->name('Usuários :: Regras - Permissões');
 
 
 // Cursos - Admin
@@ -50,6 +52,7 @@ Route::post('/admin/cursos/editar/{id}', 'CoursesController@update');
 Route::get('/admin/cursos/deletar/{id}', 'CoursesController@delete')->name('Cursos - Deletar');
 
 
+// Estados
 Route::post('/admin/estados/cidades', 'StatesController@getCities');
 
 

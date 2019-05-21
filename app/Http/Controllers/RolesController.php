@@ -115,5 +115,21 @@ class RolesController extends Controller
         } catch(Exception $e) {
             return redirect()->route('Usuários :: Regras')->with('message-error', $e->getMessage());
         }
-    }
+	}
+	
+	public function permissions($id = null) {
+		$model = new $this->model;
+
+    	$data = new \App\Menu();
+        $menus = $data->getMenus();
+
+        $dados = $model::find($id);
+
+    	$data = [
+    		"menus" => $menus,
+    		"dados" => $dados
+    	];
+
+    	return view('admin.roles.edit')->with($data);
+	}
 }

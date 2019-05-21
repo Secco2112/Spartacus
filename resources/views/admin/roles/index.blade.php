@@ -47,8 +47,11 @@
 															?>
 															<?php
 																if($buttons["edit"] || $buttons["delete"]) {
-																	echo "<td class='buttons'>";
-																		if($buttons["edit"]) { ?>
+																	echo "<td class='buttons'>"; ?>
+																		<div>
+																			<a href="usuarios-regras/permissoes/<?= $dado->id; ?>">Permissões</a>
+																		</div>
+																		<?php if($buttons["edit"]) { ?>
 																			<div>
 																				<a href="usuarios-regras/editar/<?= $dado->id; ?>">Editar</a>
 																			</div>

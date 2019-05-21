@@ -222,4 +222,44 @@ function users_form() {
 				}
 			});
 	});
+
+	$("#date_of_birth").mask("99/99/9999");
+	$("#mother_document, #father_document").mask("999.999.999-99");
+	$("#zipcode").mask("99999-999");
+	$("#phone").mask("(99) 9999-9999");
+	$("#cellphone").mask("(99) 99999-9999");
+
+	$("#zipcode").on("keyup", function() {
+		var cep = $(this).val(),
+			_size = cep.length;
+
+		if(_size == 9) {
+			$.ajax({
+				url: "/admin/usuarios/cep",
+				type: "POST",
+				dataType: "json",
+				data: ({
+					cep: cep,
+				}),
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				},
+				success: function(data) {
+					if(data) {
+						$("input#address").val(data.street).attr("readonly", true);
+						$("input#neighborhood").val(data.neighborhood).attr("readonly", true);
+						$("input#complement").val(data.complement).attr("readonly", true);
+					} else {
+						$("input#address").val("").removeAttr("readonly");
+						$("input#neighborhood").val("").removeAttr("readonly");
+						$("input#complement").val("").removeAttr("readonly");
+					}
+				}
+			});
+		} else {
+			$("input#address").val("").removeAttr("readonly");
+			$("input#neighborhood").val("").removeAttr("readonly");
+			$("input#complement").val("").removeAttr("readonly");
+		}
+	});
 }

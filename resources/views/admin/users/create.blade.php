@@ -34,7 +34,7 @@
 												Identificação
 											</h4>
 											<div class="row">
-												<div class="col-md-12">
+												<div class="col-md-6">
 													<div class="form-body">
 														<div class="form-group">
 															<label for="name">Nome</label>
@@ -42,12 +42,20 @@
                                                         </div>
 													</div>
 												</div>
+												<div class="col-md-6">
+													<div class="form-body">
+														<div class="form-group">
+															<label for="name">E-mail</label>
+															<input type="text" id="email" class="form-control" value="" name="email">
+                                                        </div>
+													</div>
+												</div>
 											</div>
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group">
-														<label for="email">E-mail</label>
-														<input type="text" id="email" class="form-control" value="" name="email">
+														<label for="email">Senha para login</label>
+														<input type="text" id="password" class="form-control" value="" name="password">
 													</div>
 												</div>
 												<div class="col-md-6">
@@ -162,6 +170,25 @@
 													<div class="form-group">
 														<label for="complement">Complemento</label>
 														<input type="text" id="complement" class="form-control" value="" name="complement">
+													</div>
+												</div>
+											</div>
+
+											<h4 class="form-section">
+												<i class="icon-phone"></i>
+												Contato
+											</h4>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="cellphone">Celular</label>
+														<input type="text" id="cellphone" class="form-control" value="" name="cellphone">
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="phone">Telefone</label>
+														<input type="text" id="phone" class="form-control" value="" name="phone">
 													</div>
 												</div>
 											</div>
