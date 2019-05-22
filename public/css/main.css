@@ -145,4 +145,36 @@
   background-color: #ccc;
 }
 
+#permissions_form ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+#permissions_form ul .menu_permission {
+  width: 21%;
+  border: 1px solid #EEE;
+  border-radius: 3px;
+  margin-top: 30px;
+}
+#permissions_form ul .menu_permission .title {
+  text-align: center;
+  display: block;
+}
+#permissions_form ul .menu_permission .list-permissions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#permissions_form ul .menu_permission .list-permissions > div {
+  margin: 0 15px;
+  display: flex;
+  align-items: center;
+}
+#permissions_form ul .menu_permission .list-permissions > div label {
+  margin: 0;
+  padding: 0 10px 3px 0;
+}
+
 /*# sourceMappingURL=main.css.map */

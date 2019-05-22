@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Role;
+use Symfony\Component\VarDumper\VarDumper;
 
 class RolesController extends Controller
 {
@@ -118,18 +119,33 @@ class RolesController extends Controller
 	}
 	
 	public function permissions($id = null) {
-		$model = new $this->model;
-
     	$data = new \App\Menu();
-        $menus = $data->getMenus();
+		$menus = $data->getMenus();
+		
+		$dados = [];
 
-        $dados = $model::find($id);
+		$all_menus = \App\Menu::all();
+		foreach($all_menus as $i => $menu) {
+			$permissions = \App\Permission::where([
+				["role_id", "=", $id],
+				["menu_id", "=", $menu->id]
+			])->get();
+			$dados[$i]["menu"]["id"] = $menu->id;
+			$dados[$i]["menu"]["name"] = $menu->name;
+			$dados[$i]["permissions"] = [];
+			foreach($permissions as $j => $perm) {
+				$dados[$i]["permissions"][] = $perm->option;
+			}
+		}
+
+		$permissions = ["C"=>"Inserir", "U"=>"Alterar", "D"=>"Deletar"];
 
     	$data = [
     		"menus" => $menus,
-    		"dados" => $dados
+			"dados" => $dados,
+			"permissions" => $permissions
     	];
 
-    	return view('admin.roles.edit')->with($data);
+    	return view('admin.roles.permissions')->with($data);
 	}
 }

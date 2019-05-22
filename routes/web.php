@@ -17,10 +17,12 @@ Route::get('/', function() { return redirect('dashboard'); });
 
 
 // Menus - Admin
-Route::get('/admin/menus', 'MenusController@index')->name('Menus');
-Route::post('/admin/menus/add', 'MenusController@add');
-Route::post('/admin/menus/edit', 'MenusController@edit');
-Route::post('/admin/menus/delete', 'MenusController@delete');
+Route::prefix('admin/menus')->group(function () {
+	Route::get('/', 'MenusController@index')->name('Menus');
+	Route::post('/add', 'MenusController@add');
+	Route::post('/edit', 'MenusController@edit');
+	Route::post('/delete', 'MenusController@delete');
+});
 
 
 // Usuários - Admin
@@ -34,13 +36,15 @@ Route::post('/admin/usuarios/cep', 'UsersController@cep');
 
 
 // Usuários Regras - Admin
-Route::get('/admin/usuarios-regras', 'RolesController@index')->name('Usuários :: Regras');
-Route::get('/admin/usuarios-regras/inserir', 'RolesController@create')->name('Usuários :: Regras - Inserir');
-Route::post('/admin/usuarios-regras/inserir', 'RolesController@create');
-Route::get('/admin/usuarios-regras/editar/{id}', 'RolesController@edit')->name('Usuários :: Regras - Editar');
-Route::post('/admin/usuarios-regras/editar/{id}', 'RolesController@update');
-Route::get('/admin/usuarios-regras/deletar/{id}', 'RolesController@delete')->name('Usuários :: Regras - Deletar');
-Route::get('/admin/usuarios-regras/permissoes/{id}', 'RolesController@permissions')->name('Usuários :: Regras - Permissões');
+Route::prefix('admin/usuarios-regras')->group(function () {
+	Route::get('/', 'RolesController@index')->name('Usuários :: Regras');
+	Route::get('/inserir', 'RolesController@create')->name('Usuários :: Regras - Inserir');
+	Route::post('/inserir', 'RolesController@create');
+	Route::get('/editar/{id}', 'RolesController@edit')->name('Usuários :: Regras - Editar');
+	Route::post('/editar/{id}', 'RolesController@update');
+	Route::get('/deletar/{id}', 'RolesController@delete')->name('Usuários :: Regras - Deletar');
+    Route::get('/permissoes/{id}', 'RolesController@permissions')->name('Usuários :: Regras - Permissões');
+});
 
 
 // Cursos - Admin
