@@ -15,7 +15,7 @@
 									<div class="options-header">
 										<?php
 											if($buttons["create"]) { ?>
-												<a href="usuarios-regras/inserir">Inserir</a>
+												<a href="periodo-letivo/inserir">Inserir</a>
 											<? }
 										?>
 									</div>
@@ -46,25 +46,20 @@
 																}
 															?>
 															<?php
-																
-																echo "<td class='buttons'>"; ?>
-																	<div>
-																		<a href="usuarios-regras/permissoes/<?= $dado->id; ?>">Permissões</a>
-																	</div>
-																	<?php
-																		if($buttons["edit"] || $buttons["delete"]) {
-																			if($buttons["edit"]) { ?>
-																				<div>
-																					<a href="usuarios-regras/editar/<?= $dado->id; ?>">Editar</a>
-																				</div>
-																			<? }
-																			if($buttons["delete"]) { ?>
-																				<div>
-																					<a href="usuarios-regras/deletar/<?= $dado->id; ?>">Deletar</a>
-																				</div>
-																			<? }
-																		}
-																echo "</td>";
+																if($buttons["edit"] || $buttons["delete"]) {
+																	echo "<td class='buttons'>";
+																		if($buttons["edit"]) { ?>
+																			<div>
+																				<a href="periodo-letivo/editar/<?= $dado->id; ?>">Editar</a>
+																			</div>
+																		<? }
+																		if($buttons["delete"]) { ?>
+																			<div>
+																				<a href="periodo-letivo/deletar/<?= $dado->id; ?>">Deletar</a>
+																			</div>
+																		<? }
+																	echo "</td>";
+																}
 															?>
 														</tr>
 													<? }

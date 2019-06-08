@@ -121,10 +121,26 @@ class UsersController extends Controller
 
         $roles = \App\Role::get();
 
+        $states = \App\State::get();
+        $cities = \App\City::get();
+        $role = $dados->getRole();
+
+        $student = [];
+        if($role[0]->role_id == 4) {
+            $student = \App\Student::where("user_id", $dados->id)->first();
+        }
+
+        $courses = \App\Course::all();
+
     	$data = [
     		"menus" => $menus,
             "dados" => $dados,
-            "user_types" => $roles
+            "user_types" => $roles,
+            "states" => $states,
+            "cities" => $cities,
+            "role" => $role,
+            "student" => $student,
+            "courses" => $courses
     	];
 
     	return view('admin.users.edit')->with($data);

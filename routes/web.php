@@ -43,21 +43,48 @@ Route::prefix('admin/usuarios-regras')->group(function () {
 	Route::get('/editar/{id}', 'RolesController@edit')->name('Usuários :: Regras - Editar');
 	Route::post('/editar/{id}', 'RolesController@update');
 	Route::get('/deletar/{id}', 'RolesController@delete')->name('Usuários :: Regras - Deletar');
-    Route::get('/permissoes/{id}', 'RolesController@permissions')->name('Usuários :: Regras - Permissões');
+	Route::get('/permissoes/{id}', 'RolesController@permissions')->name('Usuários :: Regras - Permissões');
+	Route::post('/permissoes/{id}/update', 'RolesController@update_permissions');
 });
 
 
 // Cursos - Admin
-Route::get('/admin/cursos', 'CoursesController@index')->name('Cursos');
-Route::get('/admin/cursos/inserir', 'CoursesController@create')->name('Cursos - Inserir');
-Route::post('/admin/cursos/inserir', 'CoursesController@create');
-Route::get('/admin/cursos/editar/{id}', 'CoursesController@edit')->name('Cursos - Editar');
-Route::post('/admin/cursos/editar/{id}', 'CoursesController@update');
-Route::get('/admin/cursos/deletar/{id}', 'CoursesController@delete')->name('Cursos - Deletar');
+Route::prefix('admin/cursos')->group(function () {
+	Route::get('/', 'CoursesController@index')->name('Cursos');
+	Route::get('/inserir', 'CoursesController@create')->name('Cursos - Inserir');
+	Route::post('/inserir', 'CoursesController@create');
+	Route::get('/editar/{id}', 'CoursesController@edit')->name('Cursos - Editar');
+	Route::post('/editar/{id}', 'CoursesController@update');
+	Route::get('/deletar/{id}', 'CoursesController@delete')->name('Cursos - Deletar');
+});
+
+
+// Matérias - Admin
+Route::prefix('admin/materias')->group(function () {
+	Route::get('/', 'SubjectsController@index')->name('Matérias');
+	Route::get('/inserir', 'SubjectsController@create')->name('Matérias - Inserir');
+	Route::post('/inserir', 'SubjectsController@create');
+	Route::get('/editar/{id}', 'SubjectsController@edit')->name('Matérias - Editar');
+	Route::post('/editar/{id}', 'SubjectsController@update');
+	Route::get('/deletar/{id}', 'SubjectsController@delete')->name('Matérias - Deletar');
+});
+
+
+// Período Letivo - Admin
+Route::prefix('admin/periodo-letivo')->group(function () {
+	Route::get('/', 'SchoolYearController@index')->name('Período Letivo');
+	Route::get('/inserir', 'SchoolYearController@create')->name('Período Letivo - Inserir');
+	Route::post('/inserir', 'SchoolYearController@create');
+	Route::get('/editar/{id}', 'SchoolYearController@edit')->name('Período Letivo - Editar');
+	Route::post('/editar/{id}', 'SchoolYearController@update');
+	Route::get('/deletar/{id}', 'SchoolYearController@delete')->name('Período Letivo - Deletar');
+});
 
 
 // Estados
-Route::post('/admin/estados/cidades', 'StatesController@getCities');
+Route::prefix('admin/estados')->group(function () {
+	Route::post('/cidades', 'StatesController@getCities');
+});
 
 
 Route::get('/login', function() {

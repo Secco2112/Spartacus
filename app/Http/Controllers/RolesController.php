@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Role;
 use Symfony\Component\VarDumper\VarDumper;
+use App\Permission;
 
 class RolesController extends Controller
 {
@@ -147,5 +148,25 @@ class RolesController extends Controller
     	];
 
     	return view('admin.roles.permissions')->with($data);
+	}
+
+	public function update_permissions($id) {
+		if(!empty($_POST)) {
+			Permission::where("role_id", $id)->delete();
+
+			if(isset($_POST["permission"])) {
+				foreach($_POST["permission"] as $menu_id => $permissions) {
+					foreach ($permissions as $key => $value) {
+						$perm = new Permission();
+						$perm->role_id = $id;
+						$perm->menu_id = $menu_id;
+						$perm->option = $key;
+						$perm->save();
+					}
+				}
+			}
+
+			return redirect()->route('Usuários :: Regras')->with('message-success', 'Permissões atualizadas com sucesso!');
+		}
 	}
 }
