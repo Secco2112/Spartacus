@@ -32,6 +32,8 @@ Route::post('/admin/usuarios/inserir', 'UsersController@create');
 Route::get('/admin/usuarios/editar/{id}', 'UsersController@edit')->name('Usuários - Editar');
 Route::post('/admin/usuarios/editar/{id}', 'UsersController@update');
 Route::get('/admin/usuarios/deletar/{id}', 'UsersController@delete')->name('Usuários - Deletar');
+Route::get('/admin/usuarios/materias/{id}', 'UsersController@materias')->name('Usuários - Matérias');
+Route::post('/admin/usuarios/materias/{id}', 'UsersController@materias');
 Route::post('/admin/usuarios/cep', 'UsersController@cep');
 
 

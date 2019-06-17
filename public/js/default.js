@@ -4,6 +4,8 @@ $(document).ready(function() {
 	js_tree_menus();
 
 	users_form();
+
+	students_subjects();
 });
 
 
@@ -261,5 +263,27 @@ function users_form() {
 			$("input#neighborhood").val("").removeAttr("readonly");
 			$("input#complement").val("").removeAttr("readonly");
 		}
+	});
+}
+
+
+function students_subjects() {
+	$("#btn-add-subject").on("click", function(e) {
+		e.preventDefault();
+
+		var element_to_clone = $(".list-subjects .add-subject:first-child").clone();
+
+		$(element_to_clone).find("select").each(function(i, select) {
+			$(select).find("option").each(function(j, opt) {
+				$(opt).removeAttr("selected");
+			})
+			$(select).find("option[value=0]").attr("selected", "selected");
+		});
+
+		$(".list-subjects").append($(element_to_clone).clone());
+	});
+
+	$(document).on("click", ".delete-subject", function() {
+		$(this).parent().remove();
 	});
 }

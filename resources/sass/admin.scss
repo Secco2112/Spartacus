@@ -175,3 +175,34 @@
 		}
 	}
 }
+
+
+form.user-subjects{
+	> .row{
+		display: flex;
+		justify-content: center;
+	}
+	.list-subjects{
+		.add-subject{
+			display: flex;
+			justify-content: space-between;
+			.wrapper{
+				width: 48%;
+				select{
+					
+				}
+			}
+			&:not(:first-child) {
+				margin-top: 30px;
+			}
+			i{
+				margin-top: 40px;
+				cursor: pointer;
+				color: red;
+			}
+		}
+	}
+	#btn-add-subject{
+		margin-top: 25px;
+	}
+}

@@ -48,6 +48,11 @@
 															<?php
 																if($buttons["edit"] || $buttons["delete"]) {
 																	echo "<td class='buttons'>";
+																		if($dado->role_id == 4) { ?>
+																			<div>
+																				<a href="usuarios/materias/<?= $dado->id; ?>">Matérias</a>
+																			</div>
+																		<? }
 																		if($buttons["edit"]) { ?>
 																			<div>
 																				<a href="usuarios/editar/<?= $dado->id; ?>">Editar</a>

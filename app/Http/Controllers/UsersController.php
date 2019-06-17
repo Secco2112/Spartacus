@@ -7,6 +7,7 @@ use \App\User;
 use Mockery\Exception;
 use App\Student;
 use FlyingLuscas\ViaCEP\ZipCode;
+use Symfony\Component\VarDumper\VarDumper;
 
 class UsersController extends Controller
 {
@@ -29,6 +30,11 @@ class UsersController extends Controller
         ];
         foreach ($buttons as $key => $value) {
         	$buttons[$key] = $role->hasPermissionTo($key);
+        }
+
+        foreach ($dados as $key => &$user) {
+            $role = $user->getRole();
+            $user->role_id = $role[0]->role_id;
         }
 
         $data = [
@@ -189,5 +195,57 @@ class UsersController extends Controller
             echo json_encode($address);
             die();
         }
+    }
+
+    public function materias($id) {
+        if(!empty($_POST)) {
+            \App\StudentSubject::where("user_id", $id)->delete();
+
+            if(isset($_POST["school_year"]) && count($_POST["school_year"]) > 0) {
+                foreach ($_POST["school_year"] as $key => $value) {
+                    $data = new \App\StudentSubject();
+                    $data->user_id = $id;
+                    $data->subject_id = $_POST["subject"][$key];
+                    $data->school_year_id = $value;
+                    $data->save();
+                }
+            }
+            return redirect()->route('Usuários')->with('message-success', 'Matérias cadastradas com sucesso!');
+        }
+
+        $model = new $this->model;
+
+    	$data = new \App\Menu();
+        $menus = $data->getMenus();
+
+        $dados = $model::find($id);
+
+        $role = $dados->getRole();
+
+        $student = [];
+        if($role[0]->role_id == 4) {
+            $student = \App\Student::where("user_id", $id)->first();
+        }
+
+        $available_subjects = \App\Course::find($student->course_id)->subjects;
+        $current_subjects = \DB::table("subjects")
+                                ->join("student_subjects", "subjects.id", "=", "student_subjects.subject_id")
+                                ->join("students", "students.user_id", "=", "student_subjects.user_id")
+                                ->where("students.user_id", $id)
+                                ->get();
+
+        $school_years = \App\SchoolYear::orderBy("year", "ASC")->orderBy("semester", "ASC")->get();
+
+    	$data = [
+    		"menus" => $menus,
+            "dados" => $dados,
+            "role" => $role,
+            "student" => $student,
+            "available_subjects" => $available_subjects,
+            "school_years" => $school_years,
+            "current_subjects" => $current_subjects
+    	];
+
+    	return view('admin.users.subjects')->with($data);
     }
 }

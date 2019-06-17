@@ -177,4 +177,27 @@
   padding: 0 10px 3px 0;
 }
 
+form.user-subjects > .row {
+  display: flex;
+  justify-content: center;
+}
+form.user-subjects .list-subjects .add-subject {
+  display: flex;
+  justify-content: space-between;
+}
+form.user-subjects .list-subjects .add-subject .wrapper {
+  width: 48%;
+}
+form.user-subjects .list-subjects .add-subject:not(:first-child) {
+  margin-top: 30px;
+}
+form.user-subjects .list-subjects .add-subject i {
+  margin-top: 40px;
+  cursor: pointer;
+  color: red;
+}
+form.user-subjects #btn-add-subject {
+  margin-top: 25px;
+}
+
 /*# sourceMappingURL=main.css.map */
