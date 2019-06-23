@@ -17,6 +17,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/menu/vertical-overlay-menu.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/pace.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/iziToast.min.css') }}">
+        <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
 
         <meta name="csrf-token" content="{{ csrf_token() }}" />

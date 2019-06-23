@@ -83,6 +83,26 @@ Route::prefix('admin/periodo-letivo')->group(function () {
 });
 
 
+// Notas - Docentes
+Route::prefix('notas')->group(function () {
+	Route::get('/', 'GradeController@index')->name('Notas');
+	Route::post('/load_school_years', 'GradeController@load_school_years');
+	Route::post('/load_subjects', 'GradeController@load_subjects');
+	Route::post('/load_students', 'GradeController@load_students');
+	Route::post('/save_grades', 'GradeController@update_grades');
+});
+
+
+// Materiais - Docentes
+Route::prefix('materiais')->group(function () {
+	Route::get('/', 'MaterialController@index')->name('Materiais');
+	Route::post('/load_school_years', 'MaterialController@load_school_years');
+	Route::post('/load_subjects', 'MaterialController@load_subjects');
+	Route::post('/upload_file', 'MaterialController@upload_file');
+	Route::post('/delete_file', 'MaterialController@delete_file');
+});
+
+
 // Estados
 Route::prefix('admin/estados')->group(function () {
 	Route::post('/cidades', 'StatesController@getCities');

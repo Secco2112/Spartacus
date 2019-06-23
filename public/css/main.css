@@ -200,4 +200,161 @@ form.user-subjects #btn-add-subject {
   margin-top: 25px;
 }
 
+.list-subjects {
+  max-width: 1200px;
+  margin: 70px auto 0;
+}
+.list-subjects .subject {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+.list-subjects .subject .subject-header {
+  padding: 1.25rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  cursor: pointer;
+}
+.list-subjects .subject .subject-header h5 {
+  margin: 0;
+}
+.list-subjects .subject .subject-header:first-child {
+  border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+.list-subjects .subject .collapser {
+  display: none;
+}
+.list-subjects .subject .collapser .wrapper {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-subjects .subject .collapser .wrapper > div {
+  width: 100%;
+  margin-bottom: 0;
+}
+.list-subjects .subject:not(:first-child) {
+  margin-top: 40px;
+}
+
+.list-students {
+  max-width: 1200px;
+  margin: 70px auto 0;
+}
+.list-students .student {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+.list-students .student .student-header {
+  padding: 1.25rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  cursor: pointer;
+}
+.list-students .student .student-header h5 {
+  margin: 0;
+}
+.list-students .student .student-header:first-child {
+  border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+.list-students .student .collapser {
+  display: none;
+}
+.list-students .student .collapser .wrapper {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-students .student .collapser .wrapper .grade_wrapper {
+  max-width: 170px;
+  position: relative;
+}
+.list-students .student .collapser .wrapper .grade_wrapper > div {
+  display: flex;
+  align-items: center;
+}
+.list-students .student .collapser .wrapper .grade_wrapper > div label {
+  margin: 0 5px 0 0;
+  width: 50px;
+}
+.list-students .student .collapser .wrapper .grade_wrapper > div input {
+  max-width: 90px;
+  text-align: center;
+}
+.list-students .student .collapser .wrapper .grade_wrapper > div.weight_wrapper {
+  margin-top: 15px;
+}
+.list-students .student .collapser .wrapper .grade_wrapper > i {
+  position: absolute;
+  top: 0;
+  right: -26px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #bb0000;
+}
+.list-students .student .collapser .wrapper .total div {
+  text-align: center;
+}
+.list-students .student .collapser .wrapper .plus_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  width: 90px;
+  height: 90px;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(210, 210, 210, 0.25);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(210, 210, 210, 0.25);
+  box-shadow: 1px 1px 5px 0px rgba(210, 210, 210, 0.25);
+  transition: 0.3s all ease-in-out;
+}
+.list-students .student .collapser .wrapper .plus_wrapper i {
+  font-size: 32px;
+}
+.list-students .student .collapser .wrapper .plus_wrapper span {
+  font-size: 11px;
+}
+.list-students .student .collapser .wrapper .plus_wrapper:hover {
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(210, 210, 210, 0.75);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(210, 210, 210, 0.75);
+  box-shadow: 1px 1px 5px 0px rgba(210, 210, 210, 0.75);
+}
+.list-students .student:not(:first-child) {
+  margin-top: 40px;
+}
+
 /*# sourceMappingURL=main.css.map */

@@ -18,5 +18,10 @@
 	<script type="text/javascript" src="{{ asset('js/iziToast.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/vendors/jquery.mask.min.js') }}"></script>
 
+	<script type="text/javascript" src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/filepond-plugin-file-metadata/dist/filepond-plugin-file-metadata.js"></script>
+	<script type="text/javascript" src="{{ asset('js/filepond.js') }}"></script>
+
 	<script type="text/javascript" src="{{ asset('js/default.js') }}"></script>
 </html>

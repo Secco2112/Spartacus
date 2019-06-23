@@ -138,9 +138,10 @@
                             <span class="user-name"><?= \Auth::user()->name; ?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="#" class="dropdown-item"><i class="icon-head"></i> Edit Profile</a><a href="#" class="dropdown-item"><i class="icon-mail6"></i> My Inbox</a><a href="#" class="dropdown-item"><i class="icon-clipboard2"></i> Task</a><a href="#" class="dropdown-item"><i class="icon-calendar5"></i> Calender</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item"><i class="icon-power3"></i> Logout</a>
+                            <form id="logout_form" action="/logout" method="POST">
+                                @csrf
+                                <a href="#" class="dropdown-item logout-link"><i class="icon-power3"></i> Sair</a>
+                            </form>
                         </div>
                     </li>
                 </ul>
