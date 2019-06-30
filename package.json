@@ -37,6 +37,7 @@
         "gulp-livereload": "^4.0.1",
         "gulp-scss-combine": "^1.0.0",
         "izitoast": "^1.4.0",
+        "parsleyjs": "^2.9.1",
         "tiny-lr": "^1.1.1"
     }
 }

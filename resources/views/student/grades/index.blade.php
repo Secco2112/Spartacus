@@ -35,31 +35,7 @@
 												</div>
 											</div>
 
-											<div class="list-grades">
-												<table class="table">
-													<thead>
-														<tr>
-															<th scope="col">Código disciplina</th>
-															<th scope="col">Disciplina</th>
-															<th scope="col">Nota 1</th>
-															<th scope="col">Nota 2</th>
-															<th scope="col">Nota 3</th>
-															<th scope="col">Nota 4</th>
-															<th scope="col">Média total</th>
-														</tr>
-													</thead>
-													<tbody>
-														<tr>
-															<td>1</td>
-															<td>Algoritmos e Estrutura de Dados I</td>
-															<td>7.8 (2)</td>
-															<td>8.5 (3)</td>
-															<td>6 (1)</td>
-															<td><abbr title="Estados Unidos da América">9 (4)</abbr></td>
-														</tr>
-													</tbody>
-												</table>
-											</div>
+											<div class="list-grades"></div>
 
 											<div class="form-actions center" style="display: none;">
 												<button type="button" class="btn btn-warning mr-1">

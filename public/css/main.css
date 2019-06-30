@@ -49,9 +49,12 @@
   display: none;
 }
 
+.card-body table.table tbody td {
+  padding: 20px 30px 9px;
+}
 .card-body table.table tbody .buttons {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
 }
 .card-body table.table tbody .buttons div:not(:first-child) {
@@ -355,6 +358,25 @@ form.user-subjects #btn-add-subject {
 }
 .list-students .student:not(:first-child) {
   margin-top: 40px;
+}
+
+.th_options {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.formModal ul {
+  list-style: none;
+}
+.formModal ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.formModal ul li label {
+  margin: 0;
+  width: 65px;
 }
 
 /*# sourceMappingURL=main.css.map */

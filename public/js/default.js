@@ -203,8 +203,14 @@ function users_form() {
 	$("select[name=user-type]").on("change", function() {
 		var type = $(this).find("option:selected").val();
 
-		$(".user-form").hide();
-		$("#form_" + type).show();
+		$(".teacher-admin-form input[name=user_type_id]").val(type);
+
+		$(".user-form, .teacher-admin-form").hide();
+		if(type == 4) {
+			$("#form_4").show();
+		} else {
+			$("#form_1").show();
+		}
 	});
 
 	$("select[name=state_id]").on("change", function() {
@@ -365,7 +371,8 @@ function grades() {
 			dataType: "json",
 			data: ({
 				course_id: course,
-				school_year_id: value
+				school_year_id: value,
+				student: false
 			}),
 			headers: {
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -851,12 +858,46 @@ function student_grades() {
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			},
 			success: function(data) {
+				$(".list-grades").empty();
+
 				if(data) {
 					$(".list-subjects").empty();
 
+					var table = $("<table class='table' />");
+					var thead = $("<thead />");
+					var tr = $("<tr />");
+					tr.append("<th scope='col'>Código disciplina</th>");
+					tr.append("<th scope='col'>Disciplina</th>");
+					tr.append("<th scope='col'>Nota 1</th>");
+					tr.append("<th scope='col'>Nota 2</th>");
+					tr.append("<th scope='col'>Nota 3</th>");
+					tr.append("<th scope='col'>Nota 4</th>");
+					tr.append("<th scope='col'>Média total</th>");
+					thead.append(tr);
+					table.append(thead);
+					
+					var tbody = $("<tbody />");
 					$.each(data, function(i, subject) {
-						
+						var tr = $("<tr />");
+						tr.append("<td>" + subject.id + "</td>");
+						tr.append("<td>" + subject.name + "</td>");
+
+						var sum_values = 0, sum_weights = 0;		
+						$.each(subject.grades, function(j, grade) {
+							tr.append("<td><abbr title='Nota no formato: nota (peso)'>" + grade.value + " (" + grade.weight + ")</abbr></td>");
+							sum_values += (grade.value * grade.weight);
+							sum_weights += grade.weight;
+						});
+						for(var i=0; i<4-subject.grades.length; i++) {
+							tr.append("<td></td>");
+						}
+						tr.append("<td>" + ((sum_values > 0 && sum_weights > 0)? (sum_values / sum_weights).toFixed(1): "") + "</td>");
+						tbody.append(tr);
 					});
+
+					table.append(tbody);
+
+					$(".list-grades").append(table);
 				}
 			}
 		});

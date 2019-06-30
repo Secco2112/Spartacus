@@ -15,14 +15,29 @@
 								</div>
 								<div class="card-body collapse in">
 									<div class="card-block">
-										<form class="form" method="post" action="">
+									<form class="form" method="post" action="">
 											@csrf
 											<div class="row">
 												<div class="col-md-6 offset-md-3">
 													<div class="form-body">
 														<div class="form-group">
-															<label for="name">Nome</label>
-															<input type="text" id="name" class="form-control" value="<?= $dados->name ?>" name="name">
+															<label for="semester">Semestre</label>
+															<select class="form-control" name="semester" id="semester">
+																<option value="0" disabled selected>Selecione...</option>
+																<option <?= $dados->semester == 1? "selected": ""; ?> value="1">1º semestre</option>
+																<option <?= $dados->semester == 2? "selected": ""; ?> value="2">2º semestre</option>
+															</select>
+														</div>
+														<div class="form-group">
+															<label for="year">Semestre</label>
+															<select class="form-control" name="year" id="year">
+																<option value="0" disabled selected>Selecione...</option>
+																<?php
+																	for($year = "2016"; $year <= "2035"; $year++) { ?>
+																		<option <?= $dados->year == $year? "selected": ""; ?> value="<?= $year ?>"><?= $year ?></option>
+																	<? }
+																?>
+															</select>
 														</div>
 													</div>
 												</div>

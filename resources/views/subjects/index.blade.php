@@ -31,7 +31,8 @@
 														<th scope="col"><?= $value ?></th>
 													<? }
 												?>
-												<th scope="col">Opções</th>
+												<th>Curso</th>
+												<th class="th_options" scope="col">Opções</th>
 											</thead>
 											<tbody>
 												<?php
@@ -45,17 +46,23 @@
 																	<? }
 																}
 															?>
+															<td>
+																<?php
+																	$curso = \App\Course::find($dado->course_id);
+																	echo $curso->name;
+																?>
+															</td>
 															<?php
 																if($buttons["edit"] || $buttons["delete"]) {
 																	echo "<td class='buttons'>";
 																		if($buttons["edit"]) { ?>
 																			<div>
-																				<a href="materias/editar/<?= $dado->id; ?>">Editar</a>
+																				<a class="btn btn-success" href="materias/editar/<?= $dado->id; ?>">Editar</a>
 																			</div>
 																		<? }
 																		if($buttons["delete"]) { ?>
 																			<div>
-																				<a href="materias/deletar/<?= $dado->id; ?>">Deletar</a>
+																				<a class="btn btn-danger" href="materias/deletar/<?= $dado->id; ?>">Deletar</a>
 																			</div>
 																		<? }
 																	echo "</td>";

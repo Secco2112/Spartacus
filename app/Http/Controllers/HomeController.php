@@ -61,6 +61,20 @@ class HomeController extends Controller
 
         setMenusPermission($menus, $current_user_role[0]);
 
-        return view('index', ['menus' => $menus]);
+        
+
+        if(\Auth::check()) {
+            $current_user = \Auth::user();
+            $user = \App\User::find($current_user->id);
+            $role = $user->getRole();
+            var_dump($role);
+            if($role[0]->role_id == 1) {
+                return redirect('/admin/cursos')->with(['menus' => $menus]);
+            } else {
+                return redirect('/notas')->with(['menus' => $menus]);
+            }
+        } else {
+            return view('index', ['menus' => $menus]);
+        }
     }
 }

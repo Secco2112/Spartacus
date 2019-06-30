@@ -58,9 +58,9 @@
 								<div class="card-body collapse in">
 									<div class="card-block">
 										<div class="buttons-options">
-											<button class="addModal btn btn-primary" data-toggle="modal" data-target="#addModal">Adicionar</button>
-											<button class="editModal btn btn-primary" data-toggle="modal" data-target="#editModal">Editar</button>
-											<button class="deleteModal btn btn-primary" data-toggle="modal" data-target="#deleteModal">Excluir</button>
+											<button class="addModal btn btn-success" data-toggle="modal" data-target="#addModal">Adicionar</button>
+											<button class="editModal btn btn-warning" data-toggle="modal" data-target="#editModal">Editar</button>
+											<button class="deleteModal btn btn-danger" data-toggle="modal" data-target="#deleteModal">Excluir</button>
 										</div>
 									</div>
 								</div>

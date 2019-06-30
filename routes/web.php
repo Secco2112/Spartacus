@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,9 +13,9 @@
 |
 */
 
-Route::get('/dashboard', 'HomeController@index')->name('Dashboard');
-
-Route::get('/', function() { return redirect('dashboard'); });
+Route::get('/', 'HomeController@index')->name('Dashboard');
+#Route::get('/', function() { return redirect('dashboard'); });
+#Route::get('/dashboard', function() { return redirect('admin/cursos'); });
 
 
 // Menus - Admin

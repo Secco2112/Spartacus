@@ -26,6 +26,49 @@
 											</select>
 										</div>
 
+										<form class="form teacher-admin-form" id="form_1" method="post" action="" style="display: none; margin-top: 35px;">
+											@csrf
+											<input type="hidden" value="1" name="user_type_id">
+											<h4 class="form-section">
+												<i class="icon-head"></i>
+												Identificação
+											</h4>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-body">
+														<div class="form-group">
+															<label for="name">Nome</label>
+															<input type="text" id="name" class="form-control" value="" name="name">
+                                                        </div>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="email">Senha para login</label>
+														<input type="text" id="password" class="form-control" value="" name="password">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-body">
+														<div class="form-group">
+															<label for="name">E-mail</label>
+															<input type="text" id="email" class="form-control" value="" name="email">
+                                                        </div>
+													</div>
+												</div>
+											</div>
+											<div class="form-actions center">
+												<button type="button" class="btn btn-warning mr-1">
+													<i class="icon-cross2"></i> Cancelar
+												</button>
+												<button type="submit" class="btn btn-primary">
+													<i class="icon-check2"></i> Salvar
+												</button>
+											</div>
+										</form>
+
 										<form class="form user-form" id="form_4" method="post" action="" style="display: none;">
 											@csrf
 											<input type="hidden" value="4" name="user_type_id">

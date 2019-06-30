@@ -31,7 +31,7 @@
 														<th scope="col"><?= $value ?></th>
 													<? }
 												?>
-												<th scope="col">Opções</th>
+												<th class="th_options" scope="col">Opções</th>
 											</thead>
 											<tbody>
 												<?php
@@ -50,12 +50,12 @@
 																	echo "<td class='buttons'>";
 																		if($buttons["edit"]) { ?>
 																			<div>
-																				<a href="cursos/editar/<?= $dado->id; ?>">Editar</a>
+																				<a class="btn btn-success" href="cursos/editar/<?= $dado->id; ?>">Editar</a>
 																			</div>
 																		<? }
 																		if($buttons["delete"]) { ?>
 																			<div>
-																				<a href="cursos/deletar/<?= $dado->id; ?>">Deletar</a>
+																				<a class="btn btn-danger" href="cursos/deletar/<?= $dado->id; ?>">Deletar</a>
 																			</div>
 																		<? }
 																	echo "</td>";

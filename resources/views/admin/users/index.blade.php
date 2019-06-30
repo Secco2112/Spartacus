@@ -31,7 +31,8 @@
 														<th scope="col"><?= $value ?></th>
 													<? }
 												?>
-												<th scope="col">Opções</th>
+												<th scope="col">Regra do usuário</th>
+												<th class="th_options" scope="col">Opções</th>
 											</thead>
 											<tbody>
 												<?php
@@ -45,22 +46,28 @@
 																	<? }
 																}
 															?>
+															<td>
+																<?php
+																	$role = \App\Role::find($dado->getRole()[0]->role_id);
+																	echo $role->name;
+																?>
+															</td>
 															<?php
 																if($buttons["edit"] || $buttons["delete"]) {
 																	echo "<td class='buttons'>";
 																		if($dado->role_id == 4) { ?>
 																			<div>
-																				<a href="usuarios/materias/<?= $dado->id; ?>">Matérias</a>
+																				<a class="btn btn-warning" href="usuarios/materias/<?= $dado->id; ?>">Matérias</a>
 																			</div>
 																		<? }
 																		if($buttons["edit"]) { ?>
 																			<div>
-																				<a href="usuarios/editar/<?= $dado->id; ?>">Editar</a>
+																				<a class="btn btn-success" href="usuarios/editar/<?= $dado->id; ?>">Editar</a>
 																			</div>
 																		<? }
 																		if($buttons["delete"]) { ?>
 																			<div>
-																				<a href="usuarios/deletar/<?= $dado->id; ?>">Deletar</a>
+																				<a class="btn btn-danger" href="usuarios/deletar/<?= $dado->id; ?>">Deletar</a>
 																			</div>
 																		<? }
 																	echo "</td>";

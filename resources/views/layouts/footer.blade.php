@@ -10,7 +10,7 @@
 	<script type="text/javascript" src="{{ asset('js/vendors/ui/jquery.matchHeight-min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/vendors/ui/screenfull.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/vendors/charts/chart.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/vendors/extensions/pace.min.js') }}"></script>
+	<!-- <script type="text/javascript" src="{{ asset('js/vendors/extensions/pace.min.js') }}"></script> -->
 
 	<script type="text/javascript" src="{{ asset('js/theme/app.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/theme/app-menu.js') }}"></script>

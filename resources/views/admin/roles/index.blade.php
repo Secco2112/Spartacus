@@ -31,7 +31,7 @@
 														<th scope="col"><?= $value ?></th>
 													<? }
 												?>
-												<th scope="col">Opções</th>
+												<th class="th_options" scope="col">Opções</th>
 											</thead>
 											<tbody>
 												<?php
@@ -49,18 +49,18 @@
 																
 																echo "<td class='buttons'>"; ?>
 																	<div>
-																		<a href="usuarios-regras/permissoes/<?= $dado->id; ?>">Permissões</a>
+																		<a class="btn btn-info" href="usuarios-regras/permissoes/<?= $dado->id; ?>">Permissões</a>
 																	</div>
 																	<?php
 																		if($buttons["edit"] || $buttons["delete"]) {
 																			if($buttons["edit"]) { ?>
 																				<div>
-																					<a href="usuarios-regras/editar/<?= $dado->id; ?>">Editar</a>
+																					<a class="btn btn-success" href="usuarios-regras/editar/<?= $dado->id; ?>">Editar</a>
 																				</div>
 																			<? }
 																			if($buttons["delete"]) { ?>
 																				<div>
-																					<a href="usuarios-regras/deletar/<?= $dado->id; ?>">Deletar</a>
+																					<a class="btn btn-danger" href="usuarios-regras/deletar/<?= $dado->id; ?>">Deletar</a>
 																				</div>
 																			<? }
 																		}

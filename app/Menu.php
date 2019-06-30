@@ -34,7 +34,7 @@ class Menu extends Model
         function setMenusPermission($arr, $role) {
             foreach ($arr as &$menu) {
                 $permissions = \App\Permission::where([
-                    ['role_id', '=', $role->id],
+                    ['role_id', '=', $role->role_id],
                     ['menu_id', '=', $menu->id]
                 ])->get();
                 $menu->count_permission = $permissions->count();

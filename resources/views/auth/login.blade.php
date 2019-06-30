@@ -25,8 +25,8 @@
                         <div class="card border-grey border-lighten-3 m-0">
                             <div class="card-header no-border">
                                 <div class="card-title text-xs-center">
-                                    <div class="p-1">
-                                        <img src="../../app-assets/images/logo/robust-logo-dark.png" alt="branding logo">
+                                    <div class="p-1" style="padding: 0 !important;">
+                                        <img height="100px"src="/images/login-logo.png" alt="branding logo">
                                     </div>
                                 </div>
                                 <h6 class="card-subtitle line-on-side text-muted text-xs-center font-small-3 pt-2">
@@ -68,7 +68,7 @@
                                                     <label for="remember"> Lembrar</label>
                                                 </fieldset>
                                             </div>
-                                            <div class="col-md-6 col-xs-12 text-xs-center text-md-right">
+                                            <div class="col-md-6 col-xs-12 text-xs-center text-md-right" style="display: none;">
                                                 <a href="{{ route('password.request') }}" class="card-link">
                                                     Esqueceu sua senha?
                                                 </a>
